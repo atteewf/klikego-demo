@@ -11,7 +11,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet("/courses")
+@WebServlet({"", "/", "/courses"})
 public class CoursesServlet extends HttpServlet {
 
     private static final String URL = "jdbc:postgresql://dpg-d7o9o1u7r5hc73bav0lg-a.ohio-postgres.render.com/klikego_db";
