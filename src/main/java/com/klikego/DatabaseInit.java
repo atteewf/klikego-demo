@@ -37,7 +37,6 @@ public class DatabaseInit implements ServletContextListener {
                 "FOREIGN KEY (course_id) REFERENCES courses(id))"
             );
 
-            // Insérer les courses si la table est vide
             ResultSet rs = stmt.executeQuery("SELECT COUNT(*) FROM courses");
             rs.next();
             if (rs.getInt(1) == 0) {
@@ -54,5 +53,10 @@ public class DatabaseInit implements ServletContextListener {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public void contextDestroyed(ServletContextEvent sce) {
+        // rien à faire
     }
 }
