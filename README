@@ -1,0 +1,49 @@
+# 🏃 Klikego Demo — Mini app d'inscription à des courses
+
+Projet réalisé pour démontrer une maîtrise des bases de la stack technique JAVA (Servlet) et une base de donnée SQL, ainsi que Tailwind CSS.
+
+## Stack technique
+
+- **Java Servlet** (javax.servlet)
+- **Apache Tomcat 9**
+- **PostgreSQL** (via JDBC)
+- **HTML / Tailwind CSS**
+- **Maven**
+- **Docker**
+- **Déployé sur Render**
+
+## Fonctionnalités
+
+- Liste des courses disponibles
+- Formulaire d'inscription (nom, prénom, email, course)
+- Enregistrement en base de données PostgreSQL
+- Visualisation en direct des tables `courses` et `inscriptions`
+- Page de confirmation après inscription
+
+## Démo en ligne
+
+👉 [https://klikego-demo.onrender.com/courses](https://klikego-demo.onrender.com/courses)
+
+## Lancer en local
+
+### Prérequis
+
+- Java 11+
+- Maven
+- MySQL local
+
+### Installation
+
+```bash
+git clone https://github.com/atteewf/klikego-demo.git
+cd klikego-demo
+mvn tomcat7:run
+```
+
+Puis ouvrir : `http://localhost:8080/inscription-course/courses`
+
+## Screenshots
+
+![Page courses](https://github.com/user-attachments/assets/32a1196d-77c8-424c-85a3-f2c3c924c2da)
+
+![Visualisation BDD](https://github.com/user-attachments/assets/4b708137-b0de-4779-be4d-ac099d7e8512)
