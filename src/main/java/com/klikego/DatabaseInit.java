@@ -50,9 +50,10 @@ String password = "U5DvT1GFOGGQEhqhSZJftsiHB7LD8FO6";
 
             System.out.println("✅ Base de données initialisée !");
 
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+       } catch (SQLException e) {
+    System.err.println("❌ ERREUR BDD : " + e.getMessage());
+    e.printStackTrace();
+}
     }
 
     @Override
