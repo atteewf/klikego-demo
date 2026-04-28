@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+    <Parameter name="db.url" value="jdbc:mysql://localhost:3306/inscription_course"/>
+    <Parameter name="db.user" value="root"/>
+    <Parameter name="db.password" value="rititeew"/>
+</Context>
