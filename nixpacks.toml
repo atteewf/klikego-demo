@@ -1,0 +1,8 @@
+[phases.setup]
+nixPkgs = ["jdk17", "maven"]
+
+[phases.build]
+cmds = ["mvn package -DskipTests"]
+
+[start]
+cmd = "mvn tomcat7:run"
