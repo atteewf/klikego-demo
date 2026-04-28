@@ -10,13 +10,19 @@ public class DatabaseInit implements ServletContextListener {
 
     @Override
     public void contextInitialized(ServletContextEvent sce) {
-       String url = "jdbc:postgresql://klikego_db_user:U5DvT1GFOGGQEhqhSZJftsiHB7LD8FO6@dpg-d7o9o1u7r5hc73bav0lg-a/klikego_db";
-String user = "klikego_db_user";
-String password = "U5DvT1GFOGGQEhqhSZJftsiHB7LD8FO6";
+        System.out.println("🚀 DatabaseInit démarré !");
+        
+        String url = "jdbc:postgresql://dpg-d7o9o1u7r5hc73bav0lg-a.ohio-postgres.render.com/klikego_db";
+        String user = "klikego_db_user";
+        String password = "U5DvT1GFOGGQEhqhSZJftsiHB7LD8FO6";
 
-        try (Connection conn = DriverManager.getConnection(url, user, password);
-             Statement stmt = conn.createStatement()) {
+        System.out.println("🔌 Tentative de connexion à : " + url);
 
+        try (Connection conn = DriverManager.getConnection(url, user, password)) {
+            System.out.println("✅ Connexion réussie !");
+            Statement stmt = conn.createStatement();
+
+            System.out.println("📦 Création table courses...");
             stmt.executeUpdate(
                 "CREATE TABLE IF NOT EXISTS courses (" +
                 "id SERIAL PRIMARY KEY," +
@@ -26,6 +32,7 @@ String password = "U5DvT1GFOGGQEhqhSZJftsiHB7LD8FO6";
                 "ville VARCHAR(100) NOT NULL)"
             );
 
+            System.out.println("📦 Création table inscriptions...");
             stmt.executeUpdate(
                 "CREATE TABLE IF NOT EXISTS inscriptions (" +
                 "id SERIAL PRIMARY KEY," +
@@ -39,25 +46,34 @@ String password = "U5DvT1GFOGGQEhqhSZJftsiHB7LD8FO6";
 
             ResultSet rs = stmt.executeQuery("SELECT COUNT(*) FROM courses");
             rs.next();
-            if (rs.getInt(1) == 0) {
+            int count = rs.getInt(1);
+            System.out.println("📊 Nombre de courses en BDD : " + count);
+
+            if (count == 0) {
+                System.out.println("🌱 Insertion des courses de test...");
                 stmt.executeUpdate(
                     "INSERT INTO courses (nom, date_course, distance, ville) VALUES " +
                     "('Course du Pays de Rennes', '2026-06-15', '10 km', 'Rennes')," +
                     "('Semi-marathon de Bretagne', '2026-07-20', '21 km', 'Brest')," +
                     "('Trail des Landes', '2026-08-10', '15 km', 'Vannes')"
                 );
+                System.out.println("✅ Courses insérées !");
             }
 
-            System.out.println("✅ Base de données initialisée !");
+            System.out.println("✅ Base de données initialisée avec succès !");
 
-       } catch (SQLException e) {
-    System.err.println("❌ ERREUR BDD : " + e.getMessage());
-    e.printStackTrace();
-}
+        } catch (SQLException e) {
+            System.err.println("❌ ERREUR SQL : " + e.getMessage());
+            System.err.println("❌ SQL State : " + e.getSQLState());
+            e.printStackTrace();
+        } catch (Exception e) {
+            System.err.println("❌ ERREUR INATTENDUE : " + e.getMessage());
+            e.printStackTrace();
+        }
     }
 
     @Override
     public void contextDestroyed(ServletContextEvent sce) {
-        // rien à faire
+        System.out.println("🛑 DatabaseInit arrêté.");
     }
 }

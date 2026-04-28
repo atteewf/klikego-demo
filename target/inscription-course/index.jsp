@@ -38,7 +38,7 @@
         <!-- Formulaire d'inscription -->
         <div class="bg-white rounded-xl shadow p-6">
             <h2 class="text-xl font-bold text-gray-800 mb-4">Formulaire d'inscription</h2>
-            <form action="/inscription-course/inscription" method="post" class="space-y-4">
+            <form action="/inscription" method="post" class="space-y-4">
                 <div>
                     <label class="block text-sm font-medium text-gray-700 mb-1">Course sélectionnée</label>
                     <input type="text" id="course-nom" name="courseNom" readonly
