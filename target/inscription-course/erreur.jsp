@@ -14,7 +14,7 @@
       </h1>
       <p class="text-gray-500 mb-6">Veuillez réessayer.</p>
       <a
-        href="/inscription-course/courses"
+        href="/courses"
         class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition"
       >
         Retour aux courses
