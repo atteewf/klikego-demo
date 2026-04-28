@@ -17,9 +17,9 @@ public class CoursesServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-       String url = "jdbc:mysql://localhost:3306/inscription_course";
-String user = "root";
-String password = "rititeew";
+       String url = "postgresql://klikego_db_user:U5DvT1GFOGGQEhqhSZJftsiHB7LD8FO6@dpg-d7o9o1u7r5hc73bav0lg-a/klikego_db";
+String user = "klikego_db_user";
+String password = "U5DvT1GFOGGQEhqhSZJftsiHB7LD8FO6";
 
         List<String[]> courses = new ArrayList<>();
 
