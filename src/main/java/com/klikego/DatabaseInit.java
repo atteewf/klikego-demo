@@ -10,7 +10,7 @@ public class DatabaseInit implements ServletContextListener {
 
     @Override
     public void contextInitialized(ServletContextEvent sce) {
-       String url = "jdbc:postgresql://dpg-d7o9o1u7r5hc73bav0lg-a.ohio-postgres.render.com/klikego_db";
+       String url = "jdbc:postgresql://klikego_db_user:U5DvT1GFOGGQEhqhSZJftsiHB7LD8FO6@dpg-d7o9o1u7r5hc73bav0lg-a/klikego_db";
 String user = "klikego_db_user";
 String password = "U5DvT1GFOGGQEhqhSZJftsiHB7LD8FO6";
 
