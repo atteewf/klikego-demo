@@ -32,17 +32,27 @@
 
   <build>
     <finalName>inscription-course</finalName>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.tomcat.maven</groupId>
-        <artifactId>tomcat7-maven-plugin</artifactId>
-        <version>2.2</version>
-        <configuration>
-          <port>8080</port>
-          <path>/inscription-course</path>
-        </configuration>
-      </plugin>
-    </plugins>
+   <plugin>
+    <groupId>org.apache.tomcat.maven</groupId>
+    <artifactId>tomcat7-maven-plugin</artifactId>
+    <version>2.2</version>
+    <configuration>
+        <port>8080</port>
+        <path>/inscription-course</path>
+    </configuration>
+    <executions>
+        <execution>
+            <id>tomcat-run</id>
+            <goals>
+                <goal>exec-war-only</goal>
+            </goals>
+            <phase>package</phase>
+            <configuration>
+                <path>/inscription-course</path>
+            </configuration>
+        </execution>
+    </executions>
+</plugin>
 </build>
 
 </project>

@@ -1,1 +1,1 @@
-web: mvn tomcat7:run
+web: java -jar target/inscription-course.war
