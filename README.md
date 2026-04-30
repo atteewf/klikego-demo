@@ -40,7 +40,7 @@
 
 ## 🛠️ Lancer en local
 
-**Prérequis :** Java 11+, Maven, MySQL
+**Prérequis :** Java 11+, Maven, PostgreSQL
 
 ```bash
 git clone https://github.com/atteewf/klikego-demo.git
